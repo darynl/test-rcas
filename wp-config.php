@@ -13,25 +13,36 @@
  *
  * @package WordPress
  */
-$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
+//$url=parse_url(getenv("CLEARDB_DATABASE_URL"));
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', substr($url["path"],1));
+//define('DB_NAME', substr($url["path"],1));
 
 /** MySQL database username */
-define('DB_USER', $url["user"]);
+//define('DB_USER', $url["user"]);
 
 /** MySQL database password */
-define('DB_PASSWORD', $url["pass"]);
+//define('DB_PASSWORD', $url["pass"]);
 
 /** MySQL hostname */
-define('DB_HOST', $url["host"]);
+//define('DB_HOST', $url["host"]);
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+//define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+//define('DB_COLLATE', '');
+
+if (isset($_SERVER["DATABASE_URL"])) {
+ $db = parse_url($_SERVER["DATABASE_URL"]);
+ define("DB_NAME", trim($db["path"],"/"));
+ define("DB_USER", $db["user"]);
+ define("DB_PASSWORD", $db["pass"]);
+ define("DB_HOST", $db["host"]);
+}
+else {
+ die("Your heroku DATABASE_URL does not appear to be correctly specified.");
+}
 
 /**#@+
  * Authentication Unique Keys and Salts.

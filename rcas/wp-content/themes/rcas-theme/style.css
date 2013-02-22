@@ -1,0 +1,243 @@
+/*
+Theme Name:     RCAS-TwentyTwelve
+Theme URI:      http://example.com/
+Description:    Child theme for the Twenty Twelve theme 
+Author:         Daryn
+Author URI:     http://example.com/about/
+Template:       twentytwelve
+Version:        0.1.0
+*/
+
+@import url("../rcas-theme/bootstrap/css/bootstrap.css");
+@import url("../rcas-theme/bootstrap/css/bootstrap-responsive.css");
+
+body {
+	padding-top: 20px;
+}
+
+a, a:active, a:hover, a:link, a:visited {
+	outline: none;
+	text-decoration: none;
+}
+
+.footer {
+	background-color: #333333;
+	padding: 25px 0;
+	font-size: 0.75em;
+	color: #555555;
+	margin-top: 100px;
+}
+
+.join {
+	display: inline-block;
+}
+
+.network-box {
+	margin-top: 15px;
+	float: right;
+	display: inline-block;
+}
+
+.network-logos {
+	border-style: dashed;
+	border-width: 1px;
+	border-radius: 5px;
+	padding: 0 5px;
+}
+
+/* header navbar */
+.rcas-navbar {
+	margin: 20px 0;
+}
+
+.rcas-navbar-hidden {
+	position: fixed;
+	z-index: 9000;
+	background: white;
+	margin-top: -140px;
+	display: none;
+}
+
+.rcas-nav {
+	text-align: center;
+	margin: 0;
+}
+
+.rcas-nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+.rcas-nav li:last-child {
+	list-style: none;
+	padding: 0;
+}
+
+.rcas-nav li {
+	position: relative;
+	list-style: none;
+	padding: 0 25px 0 0;
+	text-align: left;
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.rcas-nav a {
+	color: #999999;
+	text-decoration: none;
+
+}
+
+.rcas-nav a:hover {
+	color: #5785CB;
+	text-decoration: none;
+}
+
+/*.jumbotron {
+	padding-top: 100px;
+}
+*/
+.rcas-carousel-caption {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 200px;
+	height: 100%;
+	padding: 15px;
+	background: #333333;
+	background: rgba(0, 0, 0, 0.30);
+	display:none;
+}
+
+.rcas-carousel-caption h4,
+.rcas-carousel-caption p {
+	line-height: 20px;
+	color: #ffffff;
+}
+
+.carousel {
+	margin: 0 auto;
+	width: 854px;
+	height: 480px;
+	overflow: hidden;
+}
+
+.rcas-slogan {
+	text-align: center;
+	font-size: 12pt;
+}
+
+.lead:last-child {
+	margin: 0;
+}
+
+.lead {
+	display: inline-block;
+	margin: 0 90px 0 0;
+	letter-spacing: 2px;
+}
+
+hr {
+	color: blue;
+	background-color: blue;
+	height: 1px;
+}
+
+/* testing purposes to show column spacing, DO NOT USE FOR PRODUCTION */
+.show-grid {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.show-grid [class*="span"] {
+	background-color: #eee;
+	text-align: center;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	min-height: 40px;
+	line-height: 40px;
+}
+.show-grid [class*="span"]:hover {
+	background-color: #ddd;
+}
+.show-grid .show-grid {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.show-grid .show-grid [class*="span"] {
+	margin-top: 5px;
+}
+.show-grid [class*="span"] [class*="span"] {
+	background-color: #ccc;
+}
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+	background-color: #999;
+}
+/* */
+
+.blog-filter {
+	margin: 18px 0 0 0;
+}
+
+/* blog boxes, general*/
+.box-container a { color: white;}
+
+.box-container {
+	margin: 10px 10px 0 10px;
+	/*position: relative;*/
+	background-color: #f1f4ed;
+	-webkit-transition: background 200ms ease-in 100ms;
+	-moz-transition: background 200ms ease-in 100ms;
+	-o-transition: background 200ms ease-in 100ms;
+	transition: background 200ms ease-in 100ms;
+	color: white;
+	float: left;
+	width: 31.623931623931625%;
+}
+
+.box {
+	height: auto;
+	display: block;
+	padding: 5px;
+}
+
+.box-thumb {
+	width: 100%;
+}
+
+.box-title { 
+	font-family: "Open Sans", sans serif;
+	font-size: 13pt;
+	padding: 10px 0;
+}
+
+.box-content {
+	padding: 10px;
+	padding-top: 15px;
+	background-color: #f1f4ed;
+}
+
+.categories {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px;
+}
+
+/* news posts */
+.category-news .categories 	{ background-color: #DC2222; }
+.category-news:hover 		{ background-color: #DC2222; }
+.category-news .box-content { background-color: #DC2222; }
+/* event posts */
+.category-event .categories { background-color: #22DC9E; }
+.category-event:hover 		{ background-color: #22DC9E; }
+.category-event .box-content { background-color: #22DC9E;}
+/* blog posts */
+.category-blog .categories 	{ background-color: #228BDC; }
+.category-blog:hover 		{ background-color: #228BDC; }
+.category-blog 	.box-content { background-color: #228BDC;}
+/* other posts */
+.category-other .categories { background-color: #9822DC; }
+.category-other:hover 		{ background-color: #9822DC; }
+.category-other .box-content { background-color: #9822DC;}

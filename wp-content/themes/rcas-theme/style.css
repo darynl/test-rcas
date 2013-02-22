@@ -241,3 +241,5 @@ hr {
 .category-other .categories { background-color: #9822DC; }
 .category-other:hover 		{ background-color: #9822DC; }
 .category-other .box-content { background-color: #9822DC;}
+
+.fsm { color: white; } /* facebook face pile font */

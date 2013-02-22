@@ -23,4 +23,6 @@ $(window).load(function () {
             $(".rcas-navbar-hidden").css('display', 'none');
         }
     })
+
+    $(".fsm").css('color', 'white');
 });

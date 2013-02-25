@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(window).ready(function($) {
 
 	// The number of the next page to load (/page/x/).
 	var pageNum = parseInt(pbd_alp.startPage) + 1;
@@ -42,10 +42,10 @@ jQuery(document).ready(function($) {
 			  dataType: 'html'
 			}).done(function(data) {
 					var $boxes = $(data).find('.box-container');
-					$('#mason').append($boxes).masonry( 'appended', $boxes);
-					//console.log($(data).find('.box-container'))
-					// var cnt = $('.pbd-alp-placeholder-'+ pageNum).contents()
-					// $('.pbd-alp-placeholder-'+ pageNum).replaceWith(cnt);
+					$($boxes).imagesLoaded( function(){
+						$('#mason').append($boxes).masonry('appended', $boxes);
+					});
+					$('.pbd-alp-placeholder-'+ pageNum).remove();
 
 					pageNum++;
 					nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);

@@ -8,7 +8,8 @@ $(window).load(function () {
     $(function(){
         $('#mason').masonry({
             // options
-            itemSelector : '.box-container'
+            itemSelector : '.box-container',
+            isAnimate: true
         });
     });
 

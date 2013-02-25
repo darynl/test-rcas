@@ -23,6 +23,7 @@
     ?>
     
     <script src="http://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <script type="text/javascript" src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/rcas.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/bootstrap/js/bootstrap.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.masonry.js"></script>

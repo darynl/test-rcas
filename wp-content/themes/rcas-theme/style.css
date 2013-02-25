@@ -1,10 +1,9 @@
 /*
-Theme Name:     RCAS-TwentyTwelve
+Theme Name:     RCAS
 Theme URI:      http://example.com/
-Description:    Child theme for the Twenty Twelve theme 
+Description:    Child theme for the Twenty Twelve theme...not 
 Author:         Daryn
 Author URI:     http://example.com/about/
-Template:       twentytwelve
 Version:        0.1.0
 */
 
@@ -187,13 +186,43 @@ hr {
 	margin: 10px 10px 0 10px;
 	/*position: relative;*/
 	background-color: #f1f4ed;
-	-webkit-transition: background 200ms ease-in 100ms;
+	-webkit-transition: background 200ms ease-in, top 0.7s;
 	-moz-transition: background 200ms ease-in 100ms;
 	-o-transition: background 200ms ease-in 100ms;
-	transition: background 200ms ease-in 100ms;
+	transition: background 200ms ease-in, top 0.7s;
+	-webkit-animation: fadein 1.5s;
 	color: white;
 	float: left;
 	width: 31.623931623931625%;
+}
+.category-news:hover 		{ background-color: #DC2222; }
+.category-event:hover 		{ background-color: #22DC9E; }
+.category-blog:hover 		{ background-color: #228BDC; }
+.category-other:hover 		{ background-color: #9822DC; }
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
 }
 
 .box {
@@ -227,19 +256,25 @@ hr {
 
 /* news posts */
 .category-news .categories 	{ background-color: #DC2222; }
-.category-news:hover 		{ background-color: #DC2222; }
 .category-news .box-content { background-color: #DC2222; }
 /* event posts */
 .category-event .categories { background-color: #22DC9E; }
-.category-event:hover 		{ background-color: #22DC9E; }
 .category-event .box-content { background-color: #22DC9E;}
 /* blog posts */
 .category-blog .categories 	{ background-color: #228BDC; }
-.category-blog:hover 		{ background-color: #228BDC; }
 .category-blog 	.box-content { background-color: #228BDC;}
 /* other posts */
 .category-other .categories { background-color: #9822DC; }
-.category-other:hover 		{ background-color: #9822DC; }
 .category-other .box-content { background-color: #9822DC;}
 
 .fsm { color: white; } /* facebook face pile font */
+
+/*.masonry .masonry-brick {
+	-webkit-transition: top 0.7s, opacity 0.7s;
+	transition: top 0.7s, opacity 0.7s;
+}*/
+
+.masonry {
+	-webkit-transition: height,width 0.7s;
+	transtion: height,width 0.7s;
+}

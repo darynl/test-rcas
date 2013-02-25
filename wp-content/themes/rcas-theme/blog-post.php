@@ -34,7 +34,7 @@
 	            <header>
 	            	<div class="box-title"><?php the_title(); ?></div>
 	            </header>
-				<?php the_content(); ?>
+				<?php the_excerpt(); ?>
 	        </div>
 	    </div>
 	</a>

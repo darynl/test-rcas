@@ -402,7 +402,16 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 	}
 
 	// Set to use PHP's mail()
-	$phpmailer->IsMail();
+	//$phpmailer->IsMail();
+	$phpmailer->IsSMTP();
+	$phpmailer->SMTPAuth = true; // enable SMTP authentication
+	$phpmailer->Port = 25; // set the SMTP server port
+	$phpmailer->Host = 'smtp.sendgrid.net'; // SMTP server
+	$phpmailer->Username = $_ENV["SENDGRID_USERNAME"]; // SMTP server username
+	$phpmailer->Password = $_ENV["SENDGRID_PASSWORD"]; // SMTP server password
+	$phpmailer->From = $bloginfo = get_bloginfo( 'admin_email', 'raw' );
+	$phpmailer->FromName = $bloginfo = get_bloginfo( 'name', 'raw' );
+	$phpmailer->Sender = $bloginfo = get_bloginfo( 'admin_email', 'raw' );
 
 	// Set Content-Type and charset
 	// If we don't have a content-type from the input headers
@@ -651,9 +660,9 @@ if ( !function_exists('wp_set_auth_cookie') ) :
  */
 function wp_set_auth_cookie($user_id, $remember = false, $secure = '') {
 	if ( $remember ) {
-		$expiration = $expire = time() + apply_filters('auth_cookie_expiration', 14 * DAY_IN_SECONDS, $user_id, $remember);
+		$expiration = $expire = time() + apply_filters('auth_cookie_expiration', 1209600, $user_id, $remember);
 	} else {
-		$expiration = time() + apply_filters('auth_cookie_expiration', 2 * DAY_IN_SECONDS, $user_id, $remember);
+		$expiration = time() + apply_filters('auth_cookie_expiration', 172800, $user_id, $remember);
 		$expire = 0;
 	}
 
@@ -782,7 +791,7 @@ function auth_redirect() {
 	// The cookie is no good so force login
 	nocache_headers();
 
-	$redirect = ( strpos( $_SERVER['REQUEST_URI'], '/options.php' ) && wp_get_referer() ) ? wp_get_referer() : set_url_scheme( 'http://' . wp_unslash( $_SERVER['HTTP_HOST'] ) . wp_unslash( $_SERVER['REQUEST_URI'] ) );
+	$redirect = ( strpos( $_SERVER['REQUEST_URI'], '/options.php' ) && wp_get_referer() ) ? wp_get_referer() : set_url_scheme( 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 
 	$login_url = wp_login_url($redirect, true);
 
@@ -816,8 +825,7 @@ function check_admin_referer($action = -1, $query_arg = '_wpnonce') {
 	}
 	do_action('check_admin_referer', $action, $result);
 	return $result;
-}
-endif;
+}endif;
 
 if ( !function_exists('check_ajax_referer') ) :
 /**
@@ -990,10 +998,6 @@ function wp_notify_postauthor( $comment_id, $comment_type = '' ) {
 	$comment = get_comment( $comment_id );
 	$post    = get_post( $comment->comment_post_ID );
 	$author  = get_userdata( $post->post_author );
-
-	// The post author is no longer a member of the blog
-	if ( ! is_user_member_of_blog( $post->post_author ) )
-		return false;
 
 	// The comment was left by the author
 	if ( $comment->user_id == $post->post_author )
@@ -1197,8 +1201,8 @@ if ( !function_exists('wp_new_user_notification') ) :
 function wp_new_user_notification($user_id, $plaintext_pass = '') {
 	$user = get_userdata( $user_id );
 
-	$user_login = $user->user_login;
-	$user_email = $user->user_email;
+	$user_login = stripslashes($user->user_login);
+	$user_email = stripslashes($user->user_email);
 
 	// The blogname option is escaped with esc_html on the way into the database in sanitize_option
 	// we want to reverse this for the plain text arena of emails.

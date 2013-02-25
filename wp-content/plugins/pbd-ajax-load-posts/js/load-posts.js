@@ -15,14 +15,16 @@ jQuery(document).ready(function($) {
 	 */
 	if(pageNum <= max) {
 		// Insert the "More Posts" link.
-		$('#content')
+		$('#mason')
 			.append('<div class="pbd-alp-placeholder-'+ pageNum +'"></div>')
-			.append('<p id="pbd-alp-load-posts"><a href="#">Load More Posts</a></p>');
+			.append('<p id="pbd-alp-load-posts"><a href="#" style="width:100%;">Load More Posts</a></p>');
 			
 		// Remove the traditional navigation.
 		$('.navigation').remove();
 	}
-	
+
+	$('#pbd-alp-load-posts').css({'position' :'absolute', 'bottom': '0', 'width': '100%' , 'margin-bottom': '-40px'});
+
 	
 	/**
 	 * Load new posts when the link is clicked.
@@ -35,9 +37,16 @@ jQuery(document).ready(function($) {
 			// Show that we're working.
 			$(this).text('Loading posts...');
 			
-			$('.pbd-alp-placeholder-'+ pageNum).load(nextLink + ' .post',
-				function() {
-					// Update page number and nextLink.
+			$.ajax({
+			  url: nextLink,
+			  dataType: 'html'
+			}).done(function(data) {
+					var $boxes = $(data).find('.box-container');
+					$('#mason').append($boxes).masonry( 'appended', $boxes);
+					//console.log($(data).find('.box-container'))
+					// var cnt = $('.pbd-alp-placeholder-'+ pageNum).contents()
+					// $('.pbd-alp-placeholder-'+ pageNum).replaceWith(cnt);
+
 					pageNum++;
 					nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
 					
@@ -53,6 +62,28 @@ jQuery(document).ready(function($) {
 					}
 				}
 			);
+
+			// $('.pbd-alp-placeholder-'+ pageNum).load(nextLink + ' .box-container',
+			// 	function() {
+			// 		// Update page number and nextLink.
+			// 		var cnt = $('.pbd-alp-placeholder-'+ pageNum).contents()
+			// 		$('.pbd-alp-placeholder-'+ pageNum).replaceWith(cnt);
+
+			// 		pageNum++;
+			// 		nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
+					
+			// 		// Add a new placeholder, for when user clicks again.
+			// 		$('#pbd-alp-load-posts')
+			// 			.before('<div class="pbd-alp-placeholder-'+ pageNum +'"></div>')
+					
+			// 		// Update the button message.
+			// 		if(pageNum <= max) {
+			// 			$('#pbd-alp-load-posts a').text('Load More Posts');
+			// 		} else {
+			// 			$('#pbd-alp-load-posts a').text('No more posts to load.');
+			// 		}
+			// 	}
+			// );
 		} else {
 			$('#pbd-alp-load-posts a').append('.');
 		}	

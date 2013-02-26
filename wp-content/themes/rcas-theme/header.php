@@ -32,11 +32,22 @@
     <div class="container">
       <div class="masthead">
         <div class="container">
-          <h3 class="muted" style="display:inline-block"><?php bloginfo( 'name' ); ?></h3>
+          <div class="muted" style="display:inline-block">
+            <a href="<?php echo home_url(); ?>">
+              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/main_logo/RCASlogonavy.gif" alt="" width="275">
+            </a>
+          </div>
           <div class="network-box">
             <div class="network-logos">
-              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/f_logo.jpg" alt="fb_logo" width="30">
-              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/twit_logo.jpg" alt="twit_logo" width="40">
+              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook.png" alt="fb_logo" width="50" 
+              onmouseover="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook_hover.png'" 
+              onmouseout="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook.png'">
+              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/twitter.png" alt="twit_logo" width="50" 
+              onmouseover="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/twitter_hover.png'" 
+              onmouseout="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/twitter.png'">
+              <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman.png" alt="twit_logo" width="50" 
+              onmouseover="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman_hover.png'" 
+              onmouseout="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman.png'">
             </div>
           </div>
         </div>

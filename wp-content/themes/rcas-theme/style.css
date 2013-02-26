@@ -53,7 +53,7 @@ a, a:active, a:hover, a:link, a:visited {
 	position: fixed;
 	z-index: 9000;
 	background: white;
-	margin-top: -120px;
+	margin-top: -133px;
 	display: none;
 }
 
@@ -178,11 +178,12 @@ hr {
 .show-grid [class*="span"] {
 	background-color: #eee;
 	text-align: center;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
 	min-height: 40px;
 	line-height: 40px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
 }
 .show-grid [class*="span"]:hover {
 	background-color: #ddd;
@@ -213,14 +214,17 @@ hr {
 	margin: 10px 10px 0 10px;
 	/*position: relative;*/
 	background-color: #f1f4ed;
-	-webkit-transition: background 200ms ease-in, top 0.7s;
-	-moz-transition: background 200ms ease-in 100ms;
-	-o-transition: background 200ms ease-in 100ms;
-	transition: background 200ms ease-in, top 0.7s;
-	-webkit-animation: fadein 1.5s;
 	color: white;
 	float: left;
 	width: 31.623931623931625%;
+	-webkit-transition: background 200ms ease-in, top 0.7s;
+	-moz-transition: background 200ms ease-in, top 0.7s;
+	-o-transition: background 200ms ease-in, top 0.7s;
+	transition: background 200ms ease-in, top 0.7s;
+	-webkit-animation: fadein 1.5s;
+	-moz-animation: fadein 1.5s;
+	-o-animation: fadein 1.5s;
+	animation: fadein 1.5s;
 }
 .category-news:hover 		{ background-color: #DC2222; }
 .category-event:hover 		{ background-color: #22DC9E; }
@@ -228,28 +232,20 @@ hr {
 .category-other:hover 		{ background-color: #9822DC; }
 
 @keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+    from { opacity:0; }
+    to { opacity:1; }
 }
 @-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+    from { opacity:0; }
+    to { opacity:1; }
 }
 @-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+    from { opacity:0; }
+    to { opacity:1; }
+}
+@-o-keyframes fadein { /* Safari and Chrome */
+    from { opacity:0; }
+    to { opacity:1; }
 }
 
 .box {
@@ -297,12 +293,9 @@ hr {
 
 .fsm { color: white; } /* facebook face pile font */
 
-/*.masonry .masonry-brick {
-	-webkit-transition: top 0.7s, opacity 0.7s;
-	transition: top 0.7s, opacity 0.7s;
-}*/
-
 .masonry {
 	-webkit-transition: height,width 0.7s;
+	-moz-transition: height,width 0.7s;
+	-o-transition: height,width 0.7s;
 	transtion: height,width 0.7s;
 }

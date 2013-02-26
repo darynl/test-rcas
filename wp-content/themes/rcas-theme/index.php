@@ -27,26 +27,26 @@ get_header(); ?>
 			<!-- Carousel items -->
 			<div class="carousel-inner">
 				<div id="item_1" class="active item" onmouseover="$('#banner_1').show()" onmouseout="$('#banner_1').hide()">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/wallpaper-164933.jpg" alt="">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/banner/executives.jpg" alt="">
 					<div id="banner_1" class="rcas-carousel-caption" onmouseover="$('#banner_1').show()">
 						<h4>LABEL</h4>
 						<p>Description</p>
 					</div>
 				</div>
 				<div id="item_2" class="item" onmouseover="$('#banner_2').show()" onmouseout="$('#banner_2').hide()">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/wallpaper-551958.jpg" alt="">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/banner/conference.jpg" alt="">
 					<div id="banner_2" class="rcas-carousel-caption">
 						<h4>LABEL</h4>
 						<p>Description</p>
 					</div>
 				</div>
-				<div id="item_3" class="item" onmouseover="$('#banner_3').show()" onmouseout="$('#banner_3').hide()">
+				<!-- <div id="item_3" class="item" onmouseover="$('#banner_3').show()" onmouseout="$('#banner_3').hide()">
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/wallpaper-656194.jpg" alt="">
 					<div id="banner_3" class="rcas-carousel-caption">
 						<h4>LABEL</h4>
 						<p>Description</p>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<!-- Carousel nav -->
 			<a class="carousel-control left" style="display:none;" href="#myCarousel" data-slide="prev">&lsaquo;</a>

@@ -1,5 +1,5 @@
 $(window).load(function () {
-	$("#myCarousel").mouseenter(function() {
+	$("#myCarousel").carousel('cycle').mouseenter(function() {
 		$(".carousel-control").fadeIn();
 	}).mouseleave(function() {
 		$(".carousel-control").fadeOut();

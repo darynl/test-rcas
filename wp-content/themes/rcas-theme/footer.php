@@ -3,14 +3,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="span4">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook_foot.png" alt="" width="40" style="display:block;">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook_foot.png" alt="" width="40" style="display:inline-block;">
+					<p style="display:inline-block; font-size: 11pt; color: white; vertical-align: bottom;">Like our Facebook page!</p>
 					<iframe src="//www.facebook.com/plugins/facepile.php?href=https%3A%2F%2Fwww.facebook.com%2Fliquiddbt&amp;action&amp;size=medium&amp;max_rows=2&amp;show_count=true&amp;width=300&amp;colorscheme=dark" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:100px;" allowTransparency="true"></iframe>
 				</div>
 				<div class="span4">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/twitter_foot.png" alt="" width="40" style="display:block;">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/twitter_foot.png" alt="" width="40" style="display:inline-block;">
+					<p style="display:inline-block; font-size: 11pt; color: white; vertical-align: bottom;">Twitter Live Feed</p>
 				</div>
 				<div class="span4">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/contactus_foot.png" alt="" width="40" style="display:block;">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/contactus_foot.png" alt="" width="40" style="display:inline-block;">
+					<p style="display:inline-block; font-size: 11pt; color: white; vertical-align: bottom;">Contact us</p>
 				</div>
 			</div>
 			<div class="row">

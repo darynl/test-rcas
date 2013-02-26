@@ -1,4 +1,5 @@
 <?php 
+add_theme_support( 'post-thumbnails' );
 
 function new_excerpt_more($more) {
     global $post;
@@ -14,7 +15,7 @@ function improved_trim_excerpt($text) {
                 $text = apply_filters('the_content', $text);
                 $text = str_replace('\]\]\>', ']]&gt;', $text);
                 $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
-                $text = strip_tags($text, '<p style="overflow: hidden;">');
+                $text = strip_tags($text, '<p>');
                 $excerpt_length = 30;
                 $words = explode(' ', $text, $excerpt_length + 1);
                 if (count($words)> $excerpt_length) {

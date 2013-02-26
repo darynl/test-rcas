@@ -46,14 +46,14 @@ a, a:active, a:hover, a:link, a:visited {
 
 /* header navbar */
 .rcas-navbar {
-	margin: 20px 0;
+	
 }
 
 .rcas-navbar-hidden {
 	position: fixed;
 	z-index: 9000;
 	background: white;
-	margin-top: -140px;
+	margin-top: -120px;
 	display: none;
 }
 
@@ -62,20 +62,19 @@ a, a:active, a:hover, a:link, a:visited {
 	margin: 0;
 }
 
-.rcas-nav ul {
+ul.rcas-nav {
+	list-style: none;
+}
+
+li.rcas-nav:last-child {
 	list-style: none;
 	padding: 0;
 }
 
-.rcas-nav li:last-child {
-	list-style: none;
-	padding: 0;
-}
-
-.rcas-nav li {
+li.rcas-nav {
 	position: relative;
 	list-style: none;
-	padding: 0 25px 0 0;
+	padding: 10px 25px 10px 0;
 	text-align: left;
 	display: inline-block;
 	text-transform: uppercase;
@@ -91,6 +90,34 @@ a, a:active, a:hover, a:link, a:visited {
 .rcas-nav a:hover {
 	color: #5785CB;
 	text-decoration: none;
+}
+
+.rcas-nav li .rcas-sub-menu {
+	position: absolute;
+	left: -10px;
+	margin: 0;
+	width: 165px;
+	z-index: 100;
+	list-style: none;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+	-webkit-transition: opacity 0.3s ease-in, visibility 0.3s ease-in, margin-top 0.3s ease-in;  
+    -moz-transition: opacity 0.3s ease-in, visibility 0.3s ease-in, margin-top 0.3s ease-in;  
+    -o-transition: opacity 0.3s ease-in, visibility 0.3s ease-in, margin-top 0.3s ease-in;
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in, margin-top 0.3s ease-in; 
+}
+
+.rcas-nav li:hover .rcas-sub-menu  {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 10px;
+}
+
+.rcas-nav-sub {
+	padding: 5px 0 5px 10px;
+	font-size: 10pt;
+	background-color: white;
 }
 
 /*.jumbotron {
@@ -245,6 +272,7 @@ hr {
 	padding: 10px;
 	padding-top: 15px;
 	background-color: #f1f4ed;
+	overflow: hidden;
 }
 
 .categories {

@@ -43,12 +43,27 @@
         <div class="container rcas-navbar">
           <ul class="rcas-nav">
           <?php 
-          $pages = get_pages( array('sort_column' => 'menu_order') );
+          $pages = get_pages( array('sort_column' => 'menu_order', 'parent' => 0) );
           foreach ( $pages as $page ) {
+            // Set menu item
             $option = '<li class="rcas-nav"><a href="'. get_page_link( $page->ID ) . '">';
             $option .= $page->post_title;
-            $option .= '</a></li>';
+            $option .= '</a>';
             echo $option;
+
+            // Set child dropdown
+            $children = get_pages(array('child_of' => $page->ID, 'parent' => $page->ID));
+            if (sizeof($children) != 0) {
+              echo '<ul class="rcas-sub-menu">';
+              foreach ( $children as $child ) {
+                $option = '<li class="rcas-nav-sub"><a href="'. get_page_link( $child->ID ) . '">';
+                $option .= $child->post_title;
+                $option .= '</a></li>';
+                echo $option;
+              }
+              echo '</ul>';
+            }
+            echo '</li>';
           }
           ?>
           </ul>
@@ -56,12 +71,27 @@
         <div class="container rcas-navbar rcas-navbar-hidden">
           <ul class="rcas-nav">
           <?php 
-          $pages = get_pages( array('sort_column' => 'menu_order') );
+          $pages = get_pages( array('sort_column' => 'menu_order', 'parent' => 0) );
           foreach ( $pages as $page ) {
+            // Set menu item
             $option = '<li class="rcas-nav"><a href="'. get_page_link( $page->ID ) . '">';
             $option .= $page->post_title;
-            $option .= '</a></li>';
+            $option .= '</a>';
             echo $option;
+
+            // Set child dropdown
+            $children = get_pages(array('child_of' => $page->ID, 'parent' => $page->ID));
+            if (sizeof($children) != 0) {
+              echo '<ul class="rcas-sub-menu">';
+              foreach ( $children as $child ) {
+                $option = '<li class="rcas-nav-sub"><a href="'. get_page_link( $child->ID ) . '">';
+                $option .= $child->post_title;
+                $option .= '</a></li>';
+                echo $option;
+              }
+              echo '</ul>';
+            }
+            echo '</li>';
           }
           ?>
           </ul>

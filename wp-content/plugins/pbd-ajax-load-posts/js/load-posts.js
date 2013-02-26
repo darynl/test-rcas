@@ -1,13 +1,13 @@
 jQuery(window).ready(function($) {
 
 	// The number of the next page to load (/page/x/).
-	var pageNum = parseInt(pbd_alp.startPage) + 1;
+	pageNum = parseInt(pbd_alp.startPage) + 1;
 	
 	// The maximum number of pages the current query can return.
-	var max = parseInt(pbd_alp.maxPages);
+	max = parseInt(pbd_alp.maxPages);
 	
 	// The link of the next page of posts.
-	var nextLink = pbd_alp.nextLink;
+	nextLink = pbd_alp.nextLink;
 	
 	/**
 	 * Replace the traditional navigation with our own,
@@ -30,7 +30,7 @@ jQuery(window).ready(function($) {
 	 * Load new posts when the link is clicked.
 	 */
 	$('#pbd-alp-load-posts a').click(function() {
-	
+		
 		// Are there more posts to load?
 		if(pageNum <= max) {
 		
@@ -48,7 +48,7 @@ jQuery(window).ready(function($) {
 					$('.pbd-alp-placeholder-'+ pageNum).remove();
 
 					pageNum++;
-					nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
+					nextLink = nextLink.replace(/paged\=[0-9]*/, 'paged='+ pageNum);
 					
 					// Add a new placeholder, for when user clicks again.
 					$('#pbd-alp-load-posts')
@@ -63,27 +63,6 @@ jQuery(window).ready(function($) {
 				}
 			);
 
-			// $('.pbd-alp-placeholder-'+ pageNum).load(nextLink + ' .box-container',
-			// 	function() {
-			// 		// Update page number and nextLink.
-			// 		var cnt = $('.pbd-alp-placeholder-'+ pageNum).contents()
-			// 		$('.pbd-alp-placeholder-'+ pageNum).replaceWith(cnt);
-
-			// 		pageNum++;
-			// 		nextLink = nextLink.replace(/\/page\/[0-9]?/, '/page/'+ pageNum);
-					
-			// 		// Add a new placeholder, for when user clicks again.
-			// 		$('#pbd-alp-load-posts')
-			// 			.before('<div class="pbd-alp-placeholder-'+ pageNum +'"></div>')
-					
-			// 		// Update the button message.
-			// 		if(pageNum <= max) {
-			// 			$('#pbd-alp-load-posts a').text('Load More Posts');
-			// 		} else {
-			// 			$('#pbd-alp-load-posts a').text('No more posts to load.');
-			// 		}
-			// 	}
-			// );
 		} else {
 			$('#pbd-alp-load-posts a').append('.');
 		}	

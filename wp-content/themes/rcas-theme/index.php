@@ -27,7 +27,7 @@ get_header(); ?>
 			<!-- Carousel items -->
 			<div class="carousel-inner">
 				<div id="item_1" class="active item">
-					<iframe width="853" height="480" src="http://www.youtube.com/embed/OXI0gIO9K0w" frameborder="0" allowfullscreen></iframe>
+					<div id="player"></div>
 				</div>
 				<div id="item_2" class="item" onmouseover="$('#banner_1').show()" onmouseout="$('#banner_1').hide()">
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/banner/executives.jpg" alt="">

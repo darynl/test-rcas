@@ -25,5 +25,12 @@ $(window).load(function () {
         }
     })
 
+    /* FB pile font*/
     $(".fsm").css('color', 'white');
+
+    /* Pause youtube when carouseling */ 
+    $(".carousel-control").click(function(){
+        player.pauseVideo();
+        console.log('click');
+    });
 });

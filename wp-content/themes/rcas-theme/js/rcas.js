@@ -25,12 +25,32 @@ $(window).load(function () {
         }
     })
 
-    /* FB pile font*/
-    $(".fsm").css('color', 'white');
+    // /* FB pile font*/
+    // $(".fsm").css('color', 'white');
+
+    /* Twitter Feed size */
+    // $(".span4 iframe#twitter-widget-0").contents().children().ready(function() {
+    //     $(".span4 iframe#twitter-widget-0").css("height", '187px');
+    //     $(".span4 iframe#twitter-widget-0").contents().children().find(".stream").height(110);
+    // });
 
     /* Pause youtube when carouseling */ 
     $(".carousel-control").click(function(){
         player.pauseVideo();
-        console.log('click');
     });
+
+    $(".categories").css('display', 'block');
+    $('.network-logos').css('border-color', '#FFFFFF');
+    setTimeout(function(){
+    
+        var div = $('.network-logos');
+        $({alpha:1}).animate({alpha:0}, {
+            duration: 1000,
+            step: function(){
+                div.css('border-color','rgba(0,0,0,'+this.alpha+')');
+            }
+        });
+        
+    }, 10000);
+    
 });

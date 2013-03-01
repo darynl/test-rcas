@@ -36,6 +36,7 @@
 	            </header>
 				<?php the_excerpt(); ?>
 	        </div>
+	        
 	    </div>
 	</a>
 </div>

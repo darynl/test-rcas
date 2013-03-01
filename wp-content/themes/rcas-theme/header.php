@@ -27,40 +27,6 @@
     <script type="text/javascript" src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/rcas.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/bootstrap/js/bootstrap.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.masonry.js"></script>
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
-      // This is a protocol-relative URL as described here:
-      //     http://paulirish.com/2010/the-protocol-relative-url/
-      // If you're testing a local page accessed via a file:/// URL, please set tag.src to
-      //     "https://www.youtube.com/iframe_api" instead.
-      tag.src = "//www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '480',
-          width: '853',
-          videoId: 'OXI0gIO9K0w',
-          events: {
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      function onPlayerStateChange(event) {
-        if (event.data == 1) { // playing
-          $("#myCarousel").carousel('pause');
-          console.log('playing');
-        } else if (event.data == 0 || event.data == 2) { // paused or stopped
-          $("#myCarousel").carousel('cycle');
-        }
-      }
-
-    </script>
   </head>
   <body>
     <div class="container">
@@ -73,6 +39,7 @@
           </div>
           <div class="network-box">
             <div class="network-logos">
+              
               <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook.png" alt="fb_logo" width="50" 
               onmouseover="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook_hover.png'" 
               onmouseout="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook.png'">
@@ -82,6 +49,7 @@
               <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman.png" alt="twit_logo" width="50" 
               onmouseover="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman_hover.png'" 
               onmouseout="this.src='<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/rotman.png'">
+
             </div>
           </div>
         </div>
@@ -91,9 +59,8 @@
           $pages = get_pages( array('sort_column' => 'menu_order', 'parent' => 0) );
           foreach ( $pages as $page ) {
             // Set menu item
-            $option = '<li class="rcas-nav"><a href="'. get_page_link( $page->ID ) . '">';
+            $option = '<li class="rcas-nav">';
             $option .= $page->post_title;
-            $option .= '</a>';
             echo $option;
 
             // Set child dropdown

@@ -40,17 +40,34 @@ $(window).load(function () {
     });
 
     $(".categories").css('display', 'block');
-    $('.network-logos').css('border-color', '#FFFFFF');
-    setTimeout(function(){
+    // $('.network-logos').css('border-color', '#FFFFFF');
+    // setTimeout(function(){
     
-        var div = $('.network-logos');
-        $({alpha:1}).animate({alpha:0}, {
-            duration: 1000,
-            step: function(){
-                div.css('border-color','rgba(0,0,0,'+this.alpha+')');
-            }
-        });
+    //     var div = $('.network-logos');
+    //     $({alpha:1}).animate({alpha:0}, {
+    //         duration: 1000,
+    //         step: function(){
+    //             div.css('border-color','rgba(0,0,0,'+this.alpha+')');
+    //         }
+    //     });
         
-    }, 10000);
+    // }, 10000);
+
+    $(".network-box").tooltip({
+        placement: 'left'
+    })
+
+    if ($("#counter").length ) {
+        // var newYear = new Date(); 
+        // newYear.setFullYear(2013); 
+        // newYear.setMonth(03);
+        // newYear.setDate(22);
+        // $('#counter').countdown({until: newYear, format: 'WDHMS'}); 
+        var newYear = new Date(2013, 02, 22);
+        $('#counter').countdown({
+            timestamp   : newYear   
+        });
+
+    };
     
 });

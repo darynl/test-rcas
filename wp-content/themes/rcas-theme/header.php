@@ -21,15 +21,15 @@
       wp_head();
       
     ?>
-    
     <script src="http://code.jquery.com/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
     <script type="text/javascript" src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/rcas.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/bootstrap/js/bootstrap.js"></script>
     <script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/jquery.masonry.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/bootstrap/css/bootstrap-responsive.css" />
   </head>
   <body>
-    <div class="container">
       <div class="masthead">
         <div class="container">
           <div class="muted" style="display:inline-block">
@@ -37,7 +37,7 @@
               <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/main_logo/RCASlogonavy.gif" alt="" width="275">
             </a>
           </div>
-          <div class="network-box">
+          <div class="network-box" data-placement="left" data-title="Join us!">
             <div class="network-logos">
               
               <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/img/social_logo/facebook.png" alt="fb_logo" width="50" 
@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div class="container rcas-navbar">
+        <div class="rcas-navbar">
           <ul class="rcas-nav">
           <?php 
           $pages = get_pages( array('sort_column' => 'menu_order', 'parent' => 0) );
@@ -80,7 +80,7 @@
           ?>
           </ul>
         </div>
-        <div class="container rcas-navbar rcas-navbar-hidden">
+        <div class="rcas-navbar rcas-navbar-hidden">
           <ul class="rcas-nav">
           <?php 
           $pages = get_pages( array('sort_column' => 'menu_order', 'parent' => 0) );
